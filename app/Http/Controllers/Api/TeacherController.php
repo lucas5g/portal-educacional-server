@@ -13,8 +13,10 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return ['tesadfs'];
+    {   
+        $teachers = Teacher::all();
+
+        return $teachers;
     }
 
     /**

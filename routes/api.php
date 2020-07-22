@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return ['api' => 'Portal Educacional'];
 });
-Route::resource('students', 'Api\StudentController');
-Route::resource('teachers', 'Api\TeacherController');
-Route::resource('courses', 'Api\CourseController');
+
+Route::post('auth/login', 'Api\AuthController@login');
+
+Route::group(['middleware' => ['apiJwt']], function(){
+    Route::resource('students', 'Api\StudentController');
+    Route::resource('teachers', 'Api\TeacherController');
+    Route::resource('courses', 'Api\CourseController');
+    Route::resource('users', 'UserController');
+});

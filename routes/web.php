@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return ['web' => 'Build page web'];
-});
+// Route::get('/', function () {
+//     return ['web' => 'Build page web'];
+// });
 
 
 
