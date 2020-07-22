@@ -29,4 +29,6 @@ Route::middleware(['apiJwt', 'teacherRoute'])->group(function(){
     Route::resource('users', 'Api\UserController');
     Route::resource('courses', 'Api\CourseController');
     Route::resource('disciplines', 'Api\DisciplineController');
+    Route::resource('registration', 'Api\RegistrationController');
+    
 });

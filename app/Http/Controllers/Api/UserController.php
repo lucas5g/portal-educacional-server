@@ -10,11 +10,25 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 	//
-	public function index()
+	public function index(Request $request)
 	{
-		$users = User::all();
+		$profile = $request->query('profile');
 
-		return $users;
+		if($profile === 'student'){
+			$userStudents =  User::where(['profile' => 'student'])->get();
+			return $userStudents;
+		}
+		
+		if($profile === 'teacher'){
+			$userTeacher =  User::where(['profile' => 'teacher'])->get();
+			return $userTeacher;
+		}
+
+		// return $profile;
+		
+		return User::all();
+
+
 	}
 
 	public function store(Request $request)

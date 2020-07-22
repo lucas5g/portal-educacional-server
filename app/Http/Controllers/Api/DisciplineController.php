@@ -25,17 +25,17 @@ class DisciplineController extends Controller
         $nameExist = Discipline::where('title', $request->title)->first();
 
         if($nameExist){
-            return response()->json(['error'=>'Name is already registered'], 409);
+            return response()->json(['error'=>'Name is already registered'], 401);
         }
 
         $teacherExist = User::where(['id' => $request->teacher_id, 'profile' => 'teacher'])->first();
         if(!$teacherExist){
-            return response()->json(['error'=>'Teacher not registered'], 404);
+            return response()->json(['error'=>'Teacher not registered'], 401);
         }
 
         $courseExist = Course::where(['id' => $request->course_id])->first();
         if(!$courseExist){
-            return response()->json(['error'=>'Course not registered'], 404);
+            return response()->json(['error'=>'Course not registered'], 401);
         }
 
 
